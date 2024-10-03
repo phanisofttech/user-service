@@ -2,10 +2,7 @@ package com.pst.user.entity;
 
 import java.sql.Blob;
 import java.sql.Date;
-
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
@@ -13,54 +10,54 @@ import jakarta.persistence.Table;
 @Table(name = "user")
 public class UserEntity {
 	@Id
-	private long aadharNumber;
-	
+	private long aadhaarNumber;
+
 	private String userFirstName;
-	
+
 	private String userLastName;
-	
+
 	private String gender;
-	
+
 	private Date dateOfBirth;
-	
+
 	private long mobileNumber;
-	
+
 	private String email;
-	
+
 	private String addressLine1;
-	
+
 	private String village;
-	
+
 	private String mandal;
-	
+
 	private String district;
-	
+
 	private int pin;
-	
+
 	private String state;
-	
+
 	private String country;
-	
+
 	private int otp;
-	
+
 	private String password;
-	
+
 	private Blob photo;
-	
+
 	private String createdBy;
-	
+
 	private String updatedBy;
-	
+
 	private Date createdAt;
-	
+
 	private Date updatedAt;
 
-	public long getAadharNumber() {
-		return aadharNumber;
+	public long getAaadhaarNumber() {
+		return aadhaarNumber;
 	}
 
 	public void setAadharNumber(long aadharNumber) {
-		this.aadharNumber = aadharNumber;
+		this.aadhaarNumber = aadharNumber;
 	}
 
 	public String getUserFirstName() {
@@ -224,14 +221,14 @@ public class UserEntity {
 	}
 
 	public UserEntity() {
-		//empty
+		// empty
 	}
 
-	public UserEntity(long aadharNumber, String userFirstName, String userLastName, String gender, Date dateOfBirth,
+	public UserEntity(long aadhaarNumber, String userFirstName, String userLastName, String gender, Date dateOfBirth,
 			long mobileNumber, String email, String addressLine1, String village, String mandal, String district,
 			int pin, String state, String country, int otp, String password, Blob photo, String createdBy,
 			String updatedBy, Date createdAt, Date updatedAt) {
-		this.aadharNumber = aadharNumber;
+		this.aadhaarNumber = aadhaarNumber;
 		this.userFirstName = userFirstName;
 		this.userLastName = userLastName;
 		this.gender = gender;
@@ -253,6 +250,4 @@ public class UserEntity {
 		this.createdAt = createdAt;
 		this.updatedAt = updatedAt;
 	}
-	
-	
 }
