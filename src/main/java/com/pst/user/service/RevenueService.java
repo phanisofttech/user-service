@@ -10,59 +10,59 @@ import com.pst.user.entity.DistrictEntity;
 import com.pst.user.entity.MandalEntity;
 import com.pst.user.entity.StateEntity;
 import com.pst.user.entity.VillageEntity;
-import com.pst.user.repository.CountryRepo;
-import com.pst.user.repository.DistrictRepo;
-import com.pst.user.repository.MandalRepo;
-import com.pst.user.repository.StateRepo;
-import com.pst.user.repository.VillageRepo;
+import com.pst.user.repository.CountryRepository;
+import com.pst.user.repository.DistrictRepository;
+import com.pst.user.repository.MandalRepository;
+import com.pst.user.repository.StateRepository;
+import com.pst.user.repository.VillageRepository;
 
 @Service
 public class RevenueService {
 	
 	@Autowired
-	CountryRepo countryRepo;
+	CountryRepository countryRepository;
 	
 	@Autowired
-	StateRepo stateRepo;
+	StateRepository stateRepository;
 	
 	@Autowired
-	DistrictRepo districtRepo;
+	DistrictRepository districtRepository;
 	
 	@Autowired
-	MandalRepo mandalRepo;
+	MandalRepository mandalRepository;
 	
 	@Autowired
-	VillageRepo villageRepo;
+	VillageRepository villageRepository;
 
 	public List<CountryEntity> getAllCountries() {
-		return countryRepo.findAll();
+		return countryRepository.findAll();
 	}
 	
 	public List<StateEntity> getAllStates() {
-		return stateRepo.findAll();
+		return stateRepository.findAll();
 	}
 	
 	public List<DistrictEntity> getAllDistricts() {
-		return districtRepo.findAll();
+		return districtRepository.findAll();
 	}
 	
 	public List<DistrictEntity> getDistictsInfoByStateId(int stateId) {
-		return districtRepo.findDistrictByStateId(stateId);
+		return districtRepository.findDistrictByStateId(stateId);
 	}
 	
 	public List<MandalEntity> getAllMandals() {
-		return mandalRepo.findAll();
+		return mandalRepository.findAll();
 	}
 	
 	public List<MandalEntity> getMandalsInfoByDistrictId(int districtId) {
-		return mandalRepo.findMandalsByDistrictId(districtId);
+		return mandalRepository.findMandalsByDistrictId(districtId);
 	}
 	
 	public List<VillageEntity> getAllVillages() {
-		return villageRepo.findAll();
+		return villageRepository.findAll();
 	}
 	
 	public List<VillageEntity> getVillagesInfoByMandalId(int mandalId) {
-		return villageRepo.findVillageByMandalId(mandalId);
+		return villageRepository.findVillageByMandalId(mandalId);
 	}
 }

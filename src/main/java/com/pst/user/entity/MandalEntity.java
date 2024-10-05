@@ -1,5 +1,6 @@
 package com.pst.user.entity;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -13,9 +14,9 @@ public class MandalEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int mandalId;
-	
+	@Column(name = "mandal_name")
 	private String mandalName;
-	
+	@Column(name = "district_id")
 	private int districtId;
 
 	public int getMandalId() {

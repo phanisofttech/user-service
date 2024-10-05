@@ -1,7 +1,7 @@
 USE `RDCRMS`;
 
 CREATE TABLE `user` (
-   `aadhar_number` bigint NOT NULL,
+  `aadhaar_number` bigint NOT NULL,
   `user_first_name` varchar(50) DEFAULT NULL,
   `user_last_name` varchar(50) DEFAULT NULL,
   `gender` varchar(6) DEFAULT NULL,
