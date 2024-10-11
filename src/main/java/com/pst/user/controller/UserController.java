@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.pst.user.entity.UserEntity;
+import com.pst.user.response.UserResponse;
 import com.pst.user.service.UserService;
 
 @RestController
@@ -19,31 +20,31 @@ import com.pst.user.service.UserService;
 public class UserController {
 
 	@Autowired
-	UserService service;
+	private UserService service;
 
-	@PostMapping
-	public UserEntity addUser(@RequestBody UserEntity user) {
+	@PostMapping("add-users")
+	public UserResponse addUser(@RequestBody UserEntity user) {
 		return service.addUser(user);
 	}
 
-	@GetMapping("/all-users")
-	public List<UserEntity> viewAllUsers() {
+	@GetMapping("/view-all-users")
+	public List<UserResponse> viewAllUsers() {
 		return service.getAllUsers();
 	}
 
-	@DeleteMapping("{aadhaarNumber}")
+	@DeleteMapping("delete-user/{aadhaarNumber}")
 	public String deleteUser(@PathVariable("aadhaarNumber") long aadhaarNumber) {
 		return service.deleteUser(aadhaarNumber);
 	}
 
-	@PutMapping("{aadhaarNumber}")
-	public UserEntity updateUser(@PathVariable("aadhaarNumber") long aadhaarNumber, @RequestBody UserEntity user) {
-		user.setAadharNumber(aadhaarNumber);
+	@PutMapping("update-user/{aadhaarNumber}")
+	public UserResponse updateUser(@PathVariable("aadhaarNumber") long aadhaarNumber, @RequestBody UserEntity user) {
+		user.setAadhaarNumber(aadhaarNumber);
 		return service.addUser(user);
 	}
 
-	@GetMapping("{aadhaarNumber}")
-	public Optional<UserEntity> getUserByAdharNumber(@PathVariable("aadhaarNumber") long aadhaarNumber) {
-		return service.getUserByAadharNumber(aadhaarNumber);
+	@GetMapping("get-user/{aadhaarNumber}")
+	public UserResponse getUserByAdhaarNumber(@PathVariable("aadhaarNumber") long aadhaarNumber) {
+		return service.getUserByAadhaarNumber(aadhaarNumber);
 	}
 }

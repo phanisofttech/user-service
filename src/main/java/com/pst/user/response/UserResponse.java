@@ -1,15 +1,9 @@
-package com.pst.user.entity;
+package com.pst.user.response;
 
 import java.sql.Blob;
 import java.sql.Date;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
 
-@Entity
-@Table(name = "user")
-public class UserEntity {
-	@Id
+public class UserResponse {
 	private long aadhaarNumber;
 
 	private String userFirstName;
@@ -220,14 +214,11 @@ public class UserEntity {
 		this.updatedAt = updatedAt;
 	}
 
-	public UserEntity() {
-		// empty
-	}
-
-	public UserEntity(long aadhaarNumber, String userFirstName, String userLastName, String gender, Date dateOfBirth,
+	public UserResponse(long aadhaarNumber, String userFirstName, String userLastName, String gender, Date dateOfBirth,
 			long mobileNumber, String email, String addressLine1, String village, String mandal, String district,
 			int pin, String state, String country, int otp, String password, Blob photo, String createdBy,
 			String updatedBy, Date createdAt, Date updatedAt) {
+		
 		this.aadhaarNumber = aadhaarNumber;
 		this.userFirstName = userFirstName;
 		this.userLastName = userLastName;
@@ -250,4 +241,11 @@ public class UserEntity {
 		this.createdAt = createdAt;
 		this.updatedAt = updatedAt;
 	}
+
+	public UserResponse() {
+		
+		// TODO Auto-generated constructor stub
+	}
+	
+
 }
