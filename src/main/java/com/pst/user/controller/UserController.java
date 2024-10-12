@@ -1,6 +1,7 @@
 package com.pst.user.controller;
 
 import java.util.List;
+
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -16,35 +17,35 @@ import com.pst.user.response.UserResponse;
 import com.pst.user.service.UserService;
 
 @RestController
-@RequestMapping("user")
+@RequestMapping("/api/user")
 public class UserController {
 
 	@Autowired
 	private UserService service;
 
-	@PostMapping("add-users")
+	@PostMapping("/add-user")
 	public UserResponse addUser(@RequestBody UserEntity user) {
 		return service.addUser(user);
 	}
 
-	@GetMapping("/view-all-users")
+	@GetMapping("/all-users")
 	public List<UserResponse> viewAllUsers() {
 		return service.getAllUsers();
 	}
 
-	@DeleteMapping("delete-user/{aadhaarNumber}")
-	public String deleteUser(@PathVariable("aadhaarNumber") long aadhaarNumber) {
+	@DeleteMapping("/delete-user/{aadhaarNumber}")
+	public String deleteUser (@PathVariable long aadhaarNumber) {
 		return service.deleteUser(aadhaarNumber);
 	}
 
-	@PutMapping("update-user/{aadhaarNumber}")
-	public UserResponse updateUser(@PathVariable("aadhaarNumber") long aadhaarNumber, @RequestBody UserEntity user) {
+	@PutMapping("/update-user/{aadhaarNumber}")
+	public UserResponse updateUser(@PathVariable long aadhaarNumber, @RequestBody UserEntity user) {
 		user.setAadhaarNumber(aadhaarNumber);
 		return service.addUser(user);
 	}
 
-	@GetMapping("get-user/{aadhaarNumber}")
-	public UserResponse getUserByAdhaarNumber(@PathVariable("aadhaarNumber") long aadhaarNumber) {
+	@GetMapping("/{aadhaarNumber}")
+	public UserResponse getUserByAdhaarNumber(@PathVariable long aadhaarNumber) {
 		return service.getUserByAadhaarNumber(aadhaarNumber);
 	}
 }

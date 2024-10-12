@@ -2,6 +2,7 @@ package com.pst.user.service;
 
 import java.util.ArrayList;
 
+
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,8 +16,8 @@ public class UserService {
 
 	@Autowired
 	private UserRepository userRepositary;
-    @Autowired
-	private UserResponse userResponse;
+    
+	private UserResponse userResponse = new UserResponse();
 	
 	public List<UserResponse> getAllUsers() {
 		List<UserEntity> userEntities= userRepositary.findAll();
@@ -80,7 +81,7 @@ public class UserService {
 
 	public String deleteUser(long aadhaarNumber) {
 		userRepositary.deleteById(aadhaarNumber);
-		return "deleted";
+		return "User with Aadhaar Number "+aadhaarNumber+" has been deleted";
 	}
 
 	public UserResponse getUserByAadhaarNumber(long aadhaarNumber) {
