@@ -52,6 +52,5 @@ public class DistrictEntity {
 	public DistrictEntity() {
 		// TODO Auto-generated constructor stub
 	}
-	
-	
+
 }

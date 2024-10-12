@@ -52,6 +52,5 @@ public class VillageEntity {
 	public VillageEntity() {
 		// TODO Auto-generated constructor stub
 	}
-	
-	
+
 }

@@ -52,6 +52,5 @@ public class MandalEntity {
 	public MandalEntity() {
 		// TODO Auto-generated constructor stub
 	}
-	
-	
+
 }

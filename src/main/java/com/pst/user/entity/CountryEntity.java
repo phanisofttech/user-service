@@ -41,6 +41,5 @@ public class CountryEntity {
 	public CountryEntity() {
 		// TODO Auto-generated constructor stub
 	}
-	
-	
+
 }
