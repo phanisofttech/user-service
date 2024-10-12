@@ -218,7 +218,7 @@ public class UserResponse {
 			long mobileNumber, String email, String addressLine1, String village, String mandal, String district,
 			int pin, String state, String country, int otp, String password, Blob photo, String createdBy,
 			String updatedBy, Date createdAt, Date updatedAt) {
-		
+
 		this.aadhaarNumber = aadhaarNumber;
 		this.userFirstName = userFirstName;
 		this.userLastName = userLastName;
@@ -243,9 +243,8 @@ public class UserResponse {
 	}
 
 	public UserResponse() {
-		
+
 		// TODO Auto-generated constructor stub
 	}
-	
 
 }

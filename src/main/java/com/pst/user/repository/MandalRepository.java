@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.pst.user.entity.MandalEntity;
 
-public interface MandalRepository extends JpaRepository<MandalEntity,Integer>{
+public interface MandalRepository extends JpaRepository<MandalEntity, Integer> {
 
 	public List<MandalEntity> findMandalsByDistrictId(int districtId);
 }

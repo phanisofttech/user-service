@@ -2,7 +2,6 @@ package com.pst.user.controller;
 
 import java.util.List;
 
-import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -34,7 +33,7 @@ public class UserController {
 	}
 
 	@DeleteMapping("/delete-user/{aadhaarNumber}")
-	public String deleteUser (@PathVariable long aadhaarNumber) {
+	public String deleteUser(@PathVariable long aadhaarNumber) {
 		return service.deleteUser(aadhaarNumber);
 	}
 
@@ -45,7 +44,7 @@ public class UserController {
 	}
 
 	@GetMapping("/{aadhaarNumber}")
-	public UserResponse getUserByAdhaarNumber(@PathVariable long aadhaarNumber) {
+	public UserResponse getUserByAadhaarNumber(@PathVariable long aadhaarNumber) {
 		return service.getUserByAadhaarNumber(aadhaarNumber);
 	}
 }

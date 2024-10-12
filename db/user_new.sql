@@ -22,7 +22,7 @@ CREATE TABLE `user` (
   `updated_by` varchar(30) DEFAULT NULL,
   `created_at` date DEFAULT NULL,
   `updated_at` date DEFAULT NULL,
-  PRIMARY KEY (`aadhar_number`)
+  PRIMARY KEY (`aadhaar_number`)
 ) ;
 
 INSERT INTO `user` VALUES (111122223333,'test user1','testing','male','2000-01-01',9988776655,'testuser1@gmail.com','testing street','test village','nellore','nellore',524344,'Andrapradesh','India',0,NULL,NULL,'phanindra kumar','phanindra kumar','2024-09-14','2024-09-14');
