@@ -42,6 +42,10 @@ public class RevenueService {
 		return stateRepository.findAll();
 	}
 
+	public List<StateEntity> getStatesInfoByCountryId(int countryId){
+		return stateRepository.findStateByCountryId(countryId);
+	}
+
 	public List<DistrictEntity> getAllDistricts() {
 		return districtRepository.findAll();
 	}

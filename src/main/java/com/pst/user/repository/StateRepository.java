@@ -5,7 +5,11 @@ import org.springframework.stereotype.Repository;
 
 import com.pst.user.entity.StateEntity;
 
+import java.util.List;
+
 @Repository
 public interface StateRepository extends JpaRepository<StateEntity, Integer> {
+
+    public List<StateEntity> findStateByCountryId(int countryId);
 
 }
