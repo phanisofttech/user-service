@@ -2,10 +2,7 @@ package com.pst.user.controller;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import com.pst.user.entity.CountryEntity;
 import com.pst.user.entity.DistrictEntity;
 import com.pst.user.entity.MandalEntity;
@@ -15,6 +12,7 @@ import com.pst.user.service.RevenueService;
 
 @RestController
 @RequestMapping("/api/revenue")
+@CrossOrigin(origins = "*")
 public class RevenueController {
 
 	@Autowired
@@ -35,7 +33,14 @@ public class RevenueController {
 	public List<StateEntity> getStates() {
 		return revenueService.getAllStates();
 	}
-
+    
+	/**
+	 * It returns all states by the countryId in the dataBase
+	 **/
+	@GetMapping("/states/{countryId}")
+    public List<StateEntity> getStateByCountryId(@PathVariable int countryId){
+		return revenueService.getStatesInfoByCountryId(countryId);
+	}
 	/**
 	 * It returns all districts in the dataBase
 	 **/
