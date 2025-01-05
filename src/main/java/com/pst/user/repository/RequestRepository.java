@@ -7,7 +7,9 @@ import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface RequestRepository extends JpaRepository<RequestEntity, Long> {
 	
 	 @Query(value="select type_of_document, count(*) from certificate_requests group by type_of_document", nativeQuery=true)
