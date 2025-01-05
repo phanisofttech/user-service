@@ -12,8 +12,6 @@ public class CertificateCountDto {
 	
 	public long totalCount;
 	
-	public long newCertificateCount;
-	
 	public long inProgressCertificateCount;
 	
 	public long completedCertificateCount;

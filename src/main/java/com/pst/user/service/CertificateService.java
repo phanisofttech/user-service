@@ -21,20 +21,17 @@ public class CertificateService {
 		String[] certificateNames = { "Caste", "Income", "Birth", "Death" };
 
 		List<Object[]> totalCertificateCountList = requestRepository.findCertificateTypeCount();
-		List<Object[]> newCertificateCountList = requestRepository.findCertificateTypeCountByStatus("new");
 		List<Object[]> inProgressCertificateCountList = requestRepository.findCertificateTypeCountByStatus("inprogress");
 		List<Object[]> completedCertificateCountList = requestRepository.findCertificateTypeCountByStatus("completed");
 		List<Object[]> rejectedCertificateCountList = requestRepository.findCertificateTypeCountByStatus("rejected");
 
 		for (String certificateName : certificateNames) {
 			long totalCertificateCount = getCertificateCounts(totalCertificateCountList, certificateName);
-			long newCertificateCount = getCertificateCounts(newCertificateCountList, certificateName);
 			long inProgressCertificateCount = getCertificateCounts(inProgressCertificateCountList, certificateName);
 			long completedCertificateCount = getCertificateCounts(completedCertificateCountList, certificateName);
 			long rejectedCertificateCount = getCertificateCounts(rejectedCertificateCountList, certificateName);
 
-			CertificateCountDto certificateCountDto = new CertificateCountDto(certificateName, totalCertificateCount,
-					newCertificateCount, inProgressCertificateCount, completedCertificateCount,
+			CertificateCountDto certificateCountDto = new CertificateCountDto(certificateName, totalCertificateCount, inProgressCertificateCount, completedCertificateCount,
 					rejectedCertificateCount);
 			certificateCountDtos.add(certificateCountDto);
 		}
