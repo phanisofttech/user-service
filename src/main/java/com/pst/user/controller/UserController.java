@@ -2,6 +2,8 @@ package com.pst.user.controller;
 
 import java.util.List;
 
+import com.pst.user.request.ChangePasswordRequest;
+import com.pst.user.response.ChangePasswordResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -22,31 +24,36 @@ import com.pst.user.service.UserService;
 public class UserController {
 
 	@Autowired
-	private UserService service;
+	private UserService userService;
 
 	@PostMapping("/add-user")
 	public UserResponse addUser(@RequestBody UserEntity user) {
-		return service.addUser(user);
+		return userService.addUser(user);
 	}
 
 	@GetMapping("/all-users")
 	public List<UserResponse> viewAllUsers() {
-		return service.getAllUsers();
+		return userService.getAllUsers();
 	}
 
 	@DeleteMapping("/delete-user/{aadhaarNumber}")
 	public String deleteUser(@PathVariable long aadhaarNumber) {
-		return service.deleteUser(aadhaarNumber);
+		return userService.deleteUser(aadhaarNumber);
 	}
 
 	@PutMapping("/update-user/{aadhaarNumber}")
 	public UserResponse updateUser(@PathVariable long aadhaarNumber, @RequestBody UserEntity user) {
 		user.setAadhaarNumber(aadhaarNumber);
-		return service.addUser(user);
+		return userService.addUser(user);
 	}
 
 	@GetMapping("/{aadhaarNumber}")
 	public UserResponse getUserByAadhaarNumber(@PathVariable long aadhaarNumber) {
-		return service.getUserByAadhaarNumber(aadhaarNumber);
+		return userService.getUserByAadhaarNumber(aadhaarNumber);
+	}
+
+	@PostMapping("/change-password")
+	public ChangePasswordResponse changePassword(@RequestBody ChangePasswordRequest changePasswordRequest) {
+		return userService.updatePassword(changePasswordRequest);
 	}
 }

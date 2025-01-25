@@ -6,7 +6,13 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Table(name = "district")
 public class DistrictEntity {
@@ -18,39 +24,5 @@ public class DistrictEntity {
 	private String districtName;
 	@Column(name = "state_id")
 	private int stateId;
-
-	public int getDistrictId() {
-		return districtId;
-	}
-
-	public void setDistrictId(int districtId) {
-		this.districtId = districtId;
-	}
-
-	public String getDistrictName() {
-		return districtName;
-	}
-
-	public void setDistrictName(String districtName) {
-		this.districtName = districtName;
-	}
-
-	public int getStateId() {
-		return stateId;
-	}
-
-	public void setStateId(int stateId) {
-		this.stateId = stateId;
-	}
-
-	public DistrictEntity(int districtId, String districtName, int stateId) {
-		this.districtId = districtId;
-		this.districtName = districtName;
-		this.stateId = stateId;
-	}
-
-	public DistrictEntity() {
-		// TODO Auto-generated constructor stub
-	}
 
 }
