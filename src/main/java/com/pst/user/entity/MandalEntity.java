@@ -6,7 +6,14 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Table(name = "mandal")
 public class MandalEntity {
@@ -18,39 +25,5 @@ public class MandalEntity {
 	private String mandalName;
 	@Column(name = "district_id")
 	private int districtId;
-
-	public int getMandalId() {
-		return mandalId;
-	}
-
-	public void setMandalId(int mandalId) {
-		this.mandalId = mandalId;
-	}
-
-	public String getMandalName() {
-		return mandalName;
-	}
-
-	public void setMandalName(String mandalName) {
-		this.mandalName = mandalName;
-	}
-
-	public int getDistrictId() {
-		return districtId;
-	}
-
-	public void setDistrictId(int districtId) {
-		this.districtId = districtId;
-	}
-
-	public MandalEntity(int mandalId, String mandalName, int districtId) {
-		this.mandalId = mandalId;
-		this.mandalName = mandalName;
-		this.districtId = districtId;
-	}
-
-	public MandalEntity() {
-		// TODO Auto-generated constructor stub
-	}
 
 }
