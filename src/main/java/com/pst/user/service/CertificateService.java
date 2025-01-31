@@ -18,7 +18,7 @@ public class CertificateService {
 	private static final String INPROGRESS = "Inprogress";
 	private static final String COMPLETED = "Completed";
 	private static final String REJECTED = "Rejected";
-	private static final String[] certificateNames = { "Caste", "Income", "Birth", "Death" };
+	private static final String[] CERTIFICATE_NAMES = { "Caste", "Income", "Birth", "Death" };
 
 	public List<CertificateCountDto> getCertificateCount() {
 
@@ -29,7 +29,7 @@ public class CertificateService {
 		List<Object[]> completedCertificateCountList = requestRepository.findCertificateTypeCountByStatus(COMPLETED);
 		List<Object[]> rejectedCertificateCountList = requestRepository.findCertificateTypeCountByStatus(REJECTED);
 
-		for (String certificateName : certificateNames) {
+		for (String certificateName : CERTIFICATE_NAMES) {
 			long totalCertificateCount = getCertificateCounts(totalCertificateCountList, certificateName);
 			long inProgressCertificateCount = getCertificateCounts(inProgressCertificateCountList, certificateName);
 			long completedCertificateCount = getCertificateCounts(completedCertificateCountList, certificateName);
