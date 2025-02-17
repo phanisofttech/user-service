@@ -1,8 +1,10 @@
 package com.pst.user.controller;
 
-import com.pst.user.response.RequestResponse;
+import com.pst.user.response.FilterCertificateReportResponse;
+import com.pst.user.response.FilterResourceAllocationResponse;
 import com.pst.user.service.FilterService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,14 +17,18 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("/api")
+@CrossOrigin(origins = "*")
 public class FilterController {
 
 	@Autowired
 	private FilterService filterService;
 
+	/**
+	 * This method is used to filter the certificates based on the year, month, date
+	 */
 	@GetMapping({ "/filter-certificate-time/{year}", "/filter-certificate-time/{year}/{month}",
 			"/filter-certificate-time/{year}/{month}/{date}" })
-	public List<RequestResponse> doFilterBasedOnTime(@PathVariable(required = false) Integer year,
+	public List<FilterCertificateReportResponse> doFilterBasedOnTime(@PathVariable(required = false) Integer year,
 			@PathVariable(required = false) String month, @PathVariable(required = false) Integer date) {
 		return filterService.findCertificatesBasedOnTime(year, month, date);
 	}
@@ -31,9 +37,11 @@ public class FilterController {
 			"/filter-certificate-location/{country}/{state}/{district}",
 			"/filter-certificate-location/{country}/{state}/{district}/{mandal}",
 			"/filter-certificate-location/{country}/{state}/{district}/{mandal}/{village}" })
-	public List<RequestResponse> doFilterBasedOnLocations(@PathVariable(required = false) String country,
-			@PathVariable(required = false) String state, @PathVariable(required = false) String district,
-			@PathVariable(required = false) String mandal, @PathVariable(required = false) String village) {
-		return filterService.findCertificatesBasedOnLocations(country, state, district, mandal, village);
+	public List<FilterResourceAllocationResponse> doFilterBasedOnLocation(
+			@PathVariable(required = false) String country, @PathVariable(required = false) String state,
+			@PathVariable(required = false) String district, @PathVariable(required = false) String mandal,
+			@PathVariable(required = false) String village) {
+		return filterService.findCertificateBasedOnLocation(country, state,district, mandal, village);
 	}
+
 }
